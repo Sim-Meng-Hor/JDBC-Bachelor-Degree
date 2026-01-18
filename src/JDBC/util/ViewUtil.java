@@ -20,11 +20,24 @@ public class ViewUtil {
         print(table.render(), true);
     }
 
-    public static void print(String text, boolean isNewLine) {
-        if (isNewLine)
+    public static void print(String text, boolean isCentered) {
+        if (isCentered) {
+            // កំណត់ប្រវែងទទឹងអេក្រង់ Console (ឧទាហរណ៍៖ 120 អក្សរ)
+            int terminalWidth = 120;
+
+            // បំបែកតារាងជាជួរៗ ដើម្បីដាក់ឱ្យនៅកណ្តាលគ្រប់ជួរ
+            String[] lines = text.split("\n");
+            for (String line : lines) {
+                int padding = (terminalWidth - line.length()) / 2;
+                if (padding > 0) {
+                    System.out.println(" ".repeat(padding) + line);
+                } else {
+                    System.out.println(line);
+                }
+            }
+        } else {
             System.out.println(text);
-        else
-            System.out.print(text);
+        }
     }
 
     public static void printHeader(String text) {
