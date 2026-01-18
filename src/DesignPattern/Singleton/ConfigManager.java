@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConfigManager {
-
     // Create Singleton Object
     private static Connection conn;
 
@@ -35,6 +34,4 @@ public class ConfigManager {
             System.out.println("Already Connect");
         }
     }
-
-
 }
